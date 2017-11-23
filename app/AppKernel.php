@@ -16,7 +16,11 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             /* Third Party Bundles */
-            new EightPoints\Bundle\GuzzleBundle\EightPointsGuzzleBundle(),
+            new EightPoints\Bundle\GuzzleBundle\EightPointsGuzzleBundle([
+                new Gregurco\Bundle\GuzzleBundleOAuth2Plugin\GuzzleBundleOAuth2Plugin(),
+            ]),
+//            new DMS\Bundle\MeetupApiBundle\DMSMeetupApiBundle(),
+
             /* Own Bundles */
             new AppBundle\AppBundle(),
         ];
