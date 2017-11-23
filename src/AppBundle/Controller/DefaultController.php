@@ -5,9 +5,12 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Event;
 
-use Guzzle\Http\Client;
-use Guzzle\Plugin\Oauth\OauthPlugin;
+use Symfony\Component\Serializer\Serializer;
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 
 class DefaultController extends Controller
 {
@@ -36,17 +39,24 @@ class DefaultController extends Controller
      */
     public function eventsAction($eventId, $lat, $lon, $city)
     {
+        $encoders = array(new XmlEncoder(), new JsonEncoder());
+        $normalizers = array(new ObjectNormalizer());
+
+        $serializer = new Serializer($normalizers, $encoders);
+
         $client   = $this->get('eight_points_guzzle.client.api_meetup');
         $response = $client->get('/2/open_events?&sign=true&photo-host=public&lat='.$lat.'&zip='.$eventId.'&city='.$city.'&lon='.$lon.'&page=20'.'&key=2476191577a1c3d5d6141f536c6d2b');
-        dump($response->getStatusCode());
-        $jsonResponse = json_decode($response->getBody());
+        $data = json_decode($response->getBody(), true);
 
-        dump($jsonResponse);
-
-
+        $events = array();
+        foreach ($data['results'] as $result)
+        {
+            $eventParse = $serializer->deserialize(json_encode($result), Event::class, 'json');
+            $events[] = $eventParse;
+        }
 
         return $this->render('default/events.html.twig', [
-            'response'  =>  $jsonResponse,
+            'events'    =>  $events,
             'city'      =>  $city,
         ]);
     }

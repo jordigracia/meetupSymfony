@@ -21,14 +21,14 @@
 
                 </tr>
 
-                {% for results in response.results %}
+                {% for event in events %}
                     <tr>
-                        <td>{{ results.name|raw }}</td>
-                        <td>{% if results.description is defined %}{{ results.description|raw }}{% endif %}</td>
-                        <td><a href="{{ results.event_url|raw }}" target="_blank">{{ results.event_url|raw }}</a></td>
-                        <td>{{ results.time|date }}</td>
-                        <td>{{ results.updated|date }}</td>
-                        <td>{{ results.group.name }}</td>
+                        <td>{{ event.name|raw }}</td>
+                        <td>{% if event.description is defined %}{{ event.description|raw }}{% endif %}</td>
+                        <td><a href="{{ event.event_url|raw }}" target="_blank">{{ event.event_url|raw }}</a></td>
+                        <td>{{ event.time|date }}</td>
+                        <td>{{ event.updated|date }}</td>
+                        <td>{{ event.group.name }}</td>
                     </tr>
                 {% endfor %}
 
