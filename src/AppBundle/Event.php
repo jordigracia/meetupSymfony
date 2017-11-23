@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Tete
- * Date: 23/11/17
- * Time: 22:00
- */
 
 namespace AppBundle;
 
@@ -22,7 +16,6 @@ class Event
     private $updated;
 
     private $group;
-
 
 
     public function getName()
