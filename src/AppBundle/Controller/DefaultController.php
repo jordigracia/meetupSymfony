@@ -39,14 +39,18 @@ class DefaultController extends Controller
      */
     public function eventsAction($eventId, $lat, $lon, $city)
     {
+        $key = $this->getParameter('meetUpApiKey');
         $encoders = array(new XmlEncoder(), new JsonEncoder());
         $normalizers = array(new ObjectNormalizer());
 
         $serializer = new Serializer($normalizers, $encoders);
 
         $client   = $this->get('eight_points_guzzle.client.api_meetup');
-        $response = $client->get('/2/open_events?&sign=true&photo-host=public&lat='.$lat.'&zip='.$eventId.'&city='.$city.'&lon='.$lon.'&page=20'.'&key=2476191577a1c3d5d6141f536c6d2b');
+        $response = $client->get('/2/open_events?&sign=true&photo-host=public&lat='.$lat.'&zip='.$eventId.'&city='.$city.'&lon='.$lon.'&page=20'.'&key='.$key);
         $data = json_decode($response->getBody(), true);
+
+
+        dump($data['results']);
 
         $events = array();
         foreach ($data['results'] as $result)

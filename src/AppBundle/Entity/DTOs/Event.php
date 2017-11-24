@@ -17,6 +17,10 @@ class Event
 
     private $group;
 
+    private $duration;
+
+    private $distance;
+
     public function getName()
     {
         return $this->name;
@@ -79,5 +83,27 @@ class Event
     public function setGroup($group)
     {
         $this->group = $group;
+    }
+
+    public function getDuration()
+    {
+        return $this->duration/60000;
+
+    }
+
+    public function setDuration($duration)
+    {
+        $this->duration = $duration;
+    }
+
+    public function getDistance()
+    {
+        return $this->distance*1.60934;
+
+    }
+
+    public function setDistance($distance)
+    {
+        $this->distance = $distance;
     }
 }
