@@ -5,7 +5,7 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Event;
+use AppBundle\Entity\DTOs\Event;
 
 use Symfony\Component\Serializer\Serializer;
 use Symfony\Component\Serializer\Encoder\XmlEncoder;
@@ -51,12 +51,7 @@ class DefaultController extends Controller
         $events = array();
         foreach ($data['results'] as $result)
         {
-            dump($result);
-            $test = json_encode($result);
-            dump($test);
             $eventParse = $serializer->deserialize(json_encode($result), Event::class, 'json');
-            dump($eventParse);
-            die();
             $events[] = $eventParse;
         }
 

@@ -10,22 +10,20 @@
         <div class="col-md-12">
 
             <h1>Open Events in {{ city }}</h1>
-            <table class="table table-bordered">
+            <table class="table table-bordered table-condensed">
                 <tr>
                     <th>MeetUp Name</th>
                     <th>Description</th>
                     <th>URL</th>
-                    <th>time</th>
+                    <th>Time</th>
                     <th>updated</th>
                     <th>Group Name</th>
-
                 </tr>
-
                 {% for event in events %}
                     <tr>
                         <td>{{ event.name|raw }}</td>
                         <td>{% if event.description is defined %}{{ event.description|raw }}{% endif %}</td>
-                        <td><a href="{{ event.event_url|raw }}" target="_blank">{{ event.event_url|raw }}</a></td>
+                        <td><a href="{{ event.eventUrl }}" target="_blank">{{ event.eventUrl }}</a></td>
                         <td>{{ event.time|date }}</td>
                         <td>{{ event.updated|date }}</td>
                         <td>{{ event.group.name }}</td>

@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle;
+namespace AppBundle\Entity\DTOs;
 
 
 class Event
@@ -16,7 +16,6 @@ class Event
     private $updated;
 
     private $group;
-
 
     public function getName()
     {
@@ -39,12 +38,12 @@ class Event
         $this->description = $description;
     }
 
-    public function getEvent_Url()
+    public function getEventUrl()
     {
         return $this->event_url;
     }
 
-    public function setEvent_Url($event_url)
+    public function setEventUrl($event_url)
     {
         $this->event_url = $event_url;
     }
