@@ -26,7 +26,9 @@ class MeetUpController extends Controller
     {
         $key        = $this->getParameter('app.meetup.apikey');
         $client     = MeetupKeyAuthClient::factory(array('key' => $key));
+
         $response   = $client->getFindLocations();
+        //dump($request->get('Search'));
 
         $currentLocation = json_decode($response->getBody());
 
@@ -48,6 +50,7 @@ class MeetUpController extends Controller
         $serializer = new Serializer($normalizers, $encoders);
 
         $client     = MeetupKeyAuthClient::factory(array('key' => $key));
+        $response = $client->getFindEvents();
         $response   = $client->getOpenEvents(array(
             'lat'   =>  $lat,
             'lon'   =>  $lon,

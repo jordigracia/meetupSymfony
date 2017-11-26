@@ -1,17 +1,14 @@
 {% extends 'base.html.twig' %}
-
 {% block stylesheets %}
 {{ parent() }}
 {% endblock %}
 
 {% block body %}
-    <div id="wrapper">
+    {{ parent() }}
         <div class="container">
-
                 <h1><span>Welcome to</span> MeetUp API Explotation</h1>
-
-
-                <table class="table">
+                <h2>Cities near to you</h2>
+                <table class="table table-responsive">
                     <tr>
                         <th>City</th>
                         <th>ZIP</th>
@@ -33,5 +30,4 @@
             </div>
 
         </div>
-    </div>
 {% endblock %}
