@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "a5e932cfe1b3a51589d28a67b35b4f47",
+    "content-hash": "feda8cab818dcd99486c7a5ed6991568",
     "packages": [
         {
             "name": "composer/ca-bundle",
@@ -66,85 +66,43 @@
             "time": "2017-11-13T15:51:25+00:00"
         },
         {
-            "name": "dms/meetup-api-bundle",
-            "version": "v1.0.0",
-            "target-dir": "DMS/Bundle/MeetupApiBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/rdohms/dms-meetup-api-bundle.git",
-                "reference": "e34ee015e67488955eb36e6fe3cb87966ef12320"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/rdohms/dms-meetup-api-bundle/zipball/e34ee015e67488955eb36e6fe3cb87966ef12320",
-                "reference": "e34ee015e67488955eb36e6fe3cb87966ef12320",
-                "shasum": ""
-            },
-            "require": {
-                "dms/meetup-api-client": "~1.0",
-                "php": ">=5.3.2"
-            },
-            "type": "symfony-bundle",
-            "autoload": {
-                "psr-0": {
-                    "DMS\\Bundle\\MeetupApiBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Rafael Dohms",
-                    "homepage": "http://doh.ms"
-                }
-            ],
-            "description": "DMS Meetup API Bundle, enables Meetup API clients in services",
-            "homepage": "https://github.com/rdohms/DMSMeetupApiBundle",
-            "keywords": [
-                "api",
-                "bundle",
-                "dms",
-                "meetup",
-                "meetup.com",
-                "symfony"
-            ],
-            "time": "2013-04-12T13:11:38+00:00"
-        },
-        {
             "name": "dms/meetup-api-client",
-            "version": "v1.3.0",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/rdohms/meetup-api-client.git",
-                "reference": "cf9fce4cd96ea633fb59dee57d740097ec1d24f7"
+                "reference": "cc8e6496acc227a2f4a7fb92dfbcf4a4069419d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rdohms/meetup-api-client/zipball/cf9fce4cd96ea633fb59dee57d740097ec1d24f7",
-                "reference": "cf9fce4cd96ea633fb59dee57d740097ec1d24f7",
+                "url": "https://api.github.com/repos/rdohms/meetup-api-client/zipball/cc8e6496acc227a2f4a7fb92dfbcf4a4069419d9",
+                "reference": "cc8e6496acc227a2f4a7fb92dfbcf4a4069419d9",
                 "shasum": ""
             },
             "require": {
-                "guzzle/guzzle": "~3.7"
+                "guzzle/guzzle": "~3.7",
+                "php": "^5.3.10 | ^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~3.7",
+                "mathiasgrimm/arraypath": "~1.3",
+                "phpunit/phpunit": "^4.8",
                 "symfony/console": "~2.2",
                 "symfony/css-selector": "~2.2",
-                "symfony/dom-crawler": "~2.2"
+                "symfony/dom-crawler": "~2.2",
+                "symfony/var-dumper": "~2.6"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
                 "psr-0": {
-                    "DMS": "src/",
-                    "Test": "tests/"
+                    "DMS": [
+                        "src/",
+                        "tests/"
+                    ]
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -164,7 +122,7 @@
                 "dms",
                 "meetup.com"
             ],
-            "time": "2014-12-30T10:52:03+00:00"
+            "time": "2016-12-11T10:26:58+00:00"
         },
         {
             "name": "doctrine/annotations",
@@ -523,27 +481,30 @@
         },
         {
             "name": "doctrine/doctrine-bundle",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineBundle.git",
-                "reference": "8b462d952fbd386637a85d642d242a16891e0d32"
+                "reference": "eb6e4fb904a459be28872765ab6e2d246aac7c87"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/8b462d952fbd386637a85d642d242a16891e0d32",
-                "reference": "8b462d952fbd386637a85d642d242a16891e0d32",
+                "url": "https://api.github.com/repos/doctrine/DoctrineBundle/zipball/eb6e4fb904a459be28872765ab6e2d246aac7c87",
+                "reference": "eb6e4fb904a459be28872765ab6e2d246aac7c87",
                 "shasum": ""
             },
             "require": {
                 "doctrine/dbal": "^2.5.12",
                 "doctrine/doctrine-cache-bundle": "~1.2",
-                "jdorn/sql-formatter": "~1.1",
+                "jdorn/sql-formatter": "^1.2.16",
                 "php": "^5.5.9|^7.0",
                 "symfony/console": "~2.7|~3.0|~4.0",
                 "symfony/dependency-injection": "~2.7|~3.0|~4.0",
                 "symfony/doctrine-bridge": "~2.7|~3.0|~4.0",
                 "symfony/framework-bundle": "~2.7|~3.0|~4.0"
+            },
+            "conflict": {
+                "symfony/http-foundation": "<2.6"
             },
             "require-dev": {
                 "doctrine/orm": "~2.3",
@@ -552,8 +513,9 @@
                 "symfony/phpunit-bridge": "~2.7|~3.0|~4.0",
                 "symfony/property-info": "~2.8|~3.0|~4.0",
                 "symfony/validator": "~2.7|~3.0|~4.0",
+                "symfony/web-profiler-bundle": "~2.7|~3.0|~4.0",
                 "symfony/yaml": "~2.7|~3.0|~4.0",
-                "twig/twig": "~1.12|~2.0"
+                "twig/twig": "~1.26|~2.0"
             },
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle.",
@@ -600,7 +562,7 @@
                 "orm",
                 "persistence"
             ],
-            "time": "2017-11-05T23:21:03+00:00"
+            "time": "2017-11-24T13:09:19+00:00"
         },
         {
             "name": "doctrine/doctrine-cache-bundle",
@@ -3031,7 +2993,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "dms/meetup-api-client": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

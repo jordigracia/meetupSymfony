@@ -34,6 +34,26 @@ class MeetUpControllerTest extends WebTestCase
 
     private $container;
 
+    public function testIndex()
+    {
+        $client = static::createClient();
+
+        $crawler = $client->request('GET', '/');
+
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+        $this->assertContains('Welcome to MeetUp API Explotation', $crawler->filter('.container h1')->text());
+    }
+
+    /**
+     *
+     */
+    public function testApiMeetup()
+    {
+        $client = $this->container->get('eight_points_guzzle.client.api_meetup');
+        $response = $client->get('/');
+        $this->assertEquals(200, $response->getStatusCode());
+    }
+
     public function testApiMeetupGETCities()
     {
         $this->client = static::createClient();
