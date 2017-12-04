@@ -28,8 +28,6 @@ class MeetUpController extends Controller
         $client     = MeetupKeyAuthClient::factory(array('key' => $key));
 
         $response   = $client->getFindLocations();
-        //dump($request->get('Search'));
-
         $currentLocation = json_decode($response->getBody());
 
         return $this->render('default/index.html.twig', [

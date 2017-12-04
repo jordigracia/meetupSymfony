@@ -1,7 +1,13 @@
-api:
+#api:
+#    resource: "@ApiBundle/Controller/"
+#    type:     annotation
+#    prefix:   /api
+
+events:
+    type:     rest
     resource: "@ApiBundle/Controller/"
-    type:     annotation
     prefix:   /api
+    #name_prefix: api_
 
 core_domain:
     resource: "@CoreDomainBundle/Controller/"

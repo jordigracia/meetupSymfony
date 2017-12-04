@@ -22,6 +22,10 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
 //            new DMS\Bundle\MeetupApiBundle\DMSMeetupApiBundle(),
 
+            new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
+            new SimpleBus\SymfonyBridge\SimpleBusEventBusBundle(),
+
+
             /* Own Bundles */
             new AppBundle\AppBundle(),
             new CoreDomainBundle\CoreDomainBundle(),
