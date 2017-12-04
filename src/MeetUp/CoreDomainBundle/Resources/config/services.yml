@@ -1,0 +1,4 @@
+services:
+#    core_domain.example:
+#        class: CoreDomainBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

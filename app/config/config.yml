@@ -3,6 +3,8 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: guzzle.yml }
+    - { resource: "@ApiBundle/Resources/config/services.yml" }
+    #- { resource: "@CoreDomainBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -68,3 +70,18 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+
+
+fos_rest:
+    view:
+        view_response_listener: force
+    routing_loader:
+            default_format: json
+    #format_listener:
+    #    default_priorities: ['json', 'html', '*/*']
+    #    fallback_format: json
+    #    prefer_extension: true
+
+#sensio_framework_extra:
+#    view:    { annotations: false }

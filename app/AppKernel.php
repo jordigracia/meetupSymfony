@@ -19,10 +19,13 @@ class AppKernel extends Kernel
             new EightPoints\Bundle\GuzzleBundle\EightPointsGuzzleBundle([
                 new Gregurco\Bundle\GuzzleBundleOAuth2Plugin\GuzzleBundleOAuth2Plugin(),
             ]),
+            new FOS\RestBundle\FOSRestBundle(),
 //            new DMS\Bundle\MeetupApiBundle\DMSMeetupApiBundle(),
 
             /* Own Bundles */
             new AppBundle\AppBundle(),
+            new CoreDomainBundle\CoreDomainBundle(),
+            new ApiBundle\ApiBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
