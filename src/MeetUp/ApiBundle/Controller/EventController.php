@@ -8,7 +8,6 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use DMS\Service\Meetup\MeetupKeyAuthClient;
 
 use AppBundle\Entity\DTOs\Location;
-use AppBundle\Entity\DTOs\Event;
 
 class EventController extends Controller
 {
