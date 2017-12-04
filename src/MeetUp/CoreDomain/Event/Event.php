@@ -2,37 +2,54 @@
 
 namespace MeetUp\CoreDomain\Event;
 
+use JMS\Serializer\Annotation\ExclusionPolicy;
+use JMS\Serializer\Annotation\Type;
 
+
+/**
+ * @ExclusionPolicy("none")
+ */
 class Event
 {
+    /**
+     * @Type("string")
+     */
     private $name;
 
+    /**
+     * @Type("string")
+     */
     private $description;
 
+    /**
+     * @Type("string")
+     */
     private $event_url;
 
+    /**
+     * @Type("string")
+     */
     private $time;
 
+    /**
+     * @Type("string")
+     */
     private $updated;
 
+    /**
+     * @Type("array")
+     */
     private $group;
 
+    /**
+     * @Type("integer")
+     */
     private $duration;
 
+    /**
+     * @Type("integer")
+     */
     private $distance;
-
-
-    public function __construct($name, $description, $event_url, $time, $updated, $group, $duration, $distance)
-    {
-        $this->name         =   $name;
-        $this->description  =   $description;
-        $this->event_url    =   $event_url;
-        $this->time         =   $time;
-        $this->updated      =   $updated;
-        $this->group        =   $group;
-        $this->duration     =   $duration;
-        $this->distance     =   $distance;
-    }
 
     public function getName()
     {

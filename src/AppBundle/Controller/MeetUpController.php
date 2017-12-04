@@ -5,16 +5,9 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use AppBundle\Entity\DTOs\Event;
-
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\Encoder\XmlEncoder;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-
-use DMS\Service\Meetup\Plugin\KeyAuthPlugin;
 use DMS\Service\Meetup\MeetupKeyAuthClient;
 
+use AppBundle\Entity\DTOs\Event;
 
 class MeetUpController extends Controller
 {
@@ -43,12 +36,9 @@ class MeetUpController extends Controller
     public function eventsAction($eventId, $lat, $lon, $city)
     {
         $key        = $this->getParameter('app.meetup.apikey');
-        $encoders   = array(new XmlEncoder(), new JsonEncoder());
-        $normalizers= array(new ObjectNormalizer());
-        $serializer = new Serializer($normalizers, $encoders);
+        $serializer = $this->get('jms_serializer');
 
         $client     = MeetupKeyAuthClient::factory(array('key' => $key));
-        $response = $client->getFindEvents();
         $response   = $client->getOpenEvents(array(
             'lat'   =>  $lat,
             'lon'   =>  $lon,
@@ -61,7 +51,7 @@ class MeetUpController extends Controller
 
         foreach ($data['results'] as $result)
         {
-            $eventParse = $serializer->deserialize(json_encode($result), Event::class, 'json');
+            $eventParse = $serializer->deserialize(json_encode($result),Event::class, 'json');
             $events[] = $eventParse;
         }
 

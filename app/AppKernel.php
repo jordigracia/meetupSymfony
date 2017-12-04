@@ -20,6 +20,8 @@ class AppKernel extends Kernel
                 new Gregurco\Bundle\GuzzleBundleOAuth2Plugin\GuzzleBundleOAuth2Plugin(),
             ]),
             new FOS\RestBundle\FOSRestBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
+
 //            new DMS\Bundle\MeetupApiBundle\DMSMeetupApiBundle(),
 
             new SimpleBus\SymfonyBridge\SimpleBusCommandBusBundle(),
