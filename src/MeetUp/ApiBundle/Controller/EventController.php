@@ -21,6 +21,9 @@ class EventController extends Controller
         $response   = $client->getFindLocations();
         $currentLocation = json_decode($response->getBody());
 
+        /*$command = $client;
+        $this->get('command_bus')->handle($command);
+*/
         return new jsonResponse(array('currentLocation'=> $currentLocation));
     }
 

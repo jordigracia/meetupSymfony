@@ -1,4 +1,14 @@
-services:
+#services:
 #    api.example:
 #        class: ApiBundle\Example
 #        arguments: ["@service_id", "plain_value", "%parameter%"]
+
+
+services:
+    api.command.handler.delete_user:
+        class: ApiBundle\Command\Handler\DeleteUserHandler
+        arguments:
+            - @api.repository.user
+            - @doctrine.orm.entity_manager
+        tags:
+            - { name: command_handler, handles: delete_user_command }

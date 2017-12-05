@@ -9,7 +9,7 @@ use JMS\Serializer\Annotation\Type;
 /**
  * @ExclusionPolicy("none")
  */
-class Event
+class MeetupEvent
 {
     /**
      * @Type("string")

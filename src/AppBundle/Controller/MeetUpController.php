@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 use DMS\Service\Meetup\MeetupKeyAuthClient;
 
 use AppBundle\Entity\DTOs\Event;
+use MeetUp\CoreDomain\Event\MeetupEvent;
 
 class MeetUpController extends Controller
 {
